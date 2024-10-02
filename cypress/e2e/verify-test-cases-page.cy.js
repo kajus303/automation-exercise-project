@@ -1,6 +1,6 @@
 describe("Test Case 7: Verify Test Cases Page", () => {
   it("Should navigate to Test Cases page successfully", () => {
-    cy.visit("https://automationexercise.com");
+    cy.visit("");
     cy.url().should("eq", "https://automationexercise.com/");
     cy.get("body").should("be.visible");
     cy.contains("a", "Test Cases").click();
