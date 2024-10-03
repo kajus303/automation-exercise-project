@@ -14,12 +14,12 @@ This project contains automated end-to-end tests for [AutomationExercise.com](ht
 
 ### Clone the Repository
 ```bash
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/kajus303/automation-exercise-project.git
 ```
 
 ### Navigate to the Project Directory
 ```bash
-cd your-repo
+cd automation-exercise-project
 ```
 
 ### Install Dependencies
@@ -41,6 +41,10 @@ You can select individual test cases to run interactively.
 #### Run Tests in Headless Mode
 ```bash
 npx cypress run
+```
+or
+```bash
+npm run test
 ```
 Executes all tests in headless mode using the Electron browser.  
 Results will be displayed in the terminal.
