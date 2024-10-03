@@ -1,10 +1,10 @@
-describe("Test Case 4: Logout User", () => {
+describe("Test Case 5: Register User with existing email", () => {
   const name = "Test User";
   const email = `testuser${Date.now()}@example.com`;
   const password = "TestPassword123";
 
   before(() => {
-    // Precondition: Register a new user to login and logout
+    // Precondition: Register a user with a specific email
     cy.visit("http://automationexercise.com");
     cy.contains("a", "Signup / Login").click();
     cy.get('input[name="name"]').type(name);
@@ -18,11 +18,7 @@ describe("Test Case 4: Logout User", () => {
     cy.get('select[name="months"]').select("May");
     cy.get('select[name="years"]').select("1990");
 
-    // Select checkboxes
-    cy.get("#newsletter").check();
-    cy.get("#optin").check();
-
-    // Fill in additional details
+    // Fill additional required fields
     cy.get('input[name="first_name"]').type("Test");
     cy.get('input[name="last_name"]').type("User");
     cy.get('input[name="company"]').type("Test Company");
@@ -44,11 +40,11 @@ describe("Test Case 4: Logout User", () => {
     // Ensure 'Logged in as username' is visible
     cy.contains("a", `Logged in as ${name}`).should("be.visible");
 
-    // Logout to prepare for login/logout test
+    // Logout to prepare for the test
     cy.contains("a", "Logout").click();
   });
 
-  it("should log in and log out the user successfully", () => {
+  it("should display an error when registering with an existing email", () => {
     // Navigate to URL 'http://automationexercise.com'
     cy.visit("http://automationexercise.com");
 
@@ -58,24 +54,17 @@ describe("Test Case 4: Logout User", () => {
     // Click on 'Signup / Login' button
     cy.contains("a", "Signup / Login").click();
 
-    // Verify 'Login to your account' is visible
-    cy.contains("h2", "Login to your account").should("be.visible");
+    // Verify 'New User Signup!' is visible
+    cy.contains("h2", "New User Signup!").should("be.visible");
 
-    // Enter correct email address and password
-    cy.get('input[data-qa="login-email"]').type(email);
-    cy.get('input[data-qa="login-password"]').type(password);
+    // Enter name and already registered email address
+    cy.get('input[name="name"]').type(name);
+    cy.get('input[data-qa="signup-email"]').type(email);
 
-    // Click 'login' button
-    cy.get('button[data-qa="login-button"]').click();
+    // Click 'Signup' button
+    cy.get('button[data-qa="signup-button"]').click();
 
-    // Verify that 'Logged in as username' is visible
-    cy.contains("a", `Logged in as ${name}`).should("be.visible");
-
-    // Click 'Logout' button
-    cy.contains("a", "Logout").click();
-
-    // Verify that user is navigated to login page
-    cy.url().should("include", "/login");
-    cy.contains("h2", "Login to your account").should("be.visible");
+    // Verify error 'Email Address already exist!' is visible
+    cy.contains("p", "Email Address already exist!").should("be.visible");
   });
 });
