@@ -1,7 +1,6 @@
 describe("Test Case 1: Register User", () => {
   it("should register a new user successfully", function () {
     cy.fixture("user").then((user) => {
-      // Generate a unique email
       user.email = `testuser${Date.now()}@example.com`;
 
       cy.registerUser(user);
