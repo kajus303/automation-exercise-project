@@ -1,6 +1,6 @@
 describe("Test Case 8: Verify All Products and Product Detail Page", () => {
   it("should display all products and navigate to product detail page successfully", () => {
-    // Navigate to URL "http://automationexercise.com"
+    // Navigate to URL 'http://automationexercise.com'
     cy.visit("http://automationexercise.com");
 
     // Verify that home page is visible successfully

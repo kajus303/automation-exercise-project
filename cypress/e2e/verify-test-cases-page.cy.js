@@ -1,6 +1,6 @@
 describe("Test Case 7: Verify Test Cases Page", () => {
   it("should navigate to Test Cases page successfully", () => {
-    // Navigate to URL "http://automationexercise.com"
+    // Navigate to URL 'http://automationexercise.com'
     cy.visit("http://automationexercise.com");
 
     // Verify that home page is visible successfully
