@@ -1,5 +1,5 @@
 describe("Test Case 1: Register User", () => {
-  it("should register a new user successfully", function () {
+  it("should register a new user successfully", () => {
     cy.fixture("user").then((user) => {
       user.email = `testuser${Date.now()}@example.com`;
 
