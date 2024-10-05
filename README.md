@@ -39,7 +39,7 @@ npm install
 #### Open Cypress Test Runner
 
 ```bash
-npx run test
+npm run test
 ```
 
 This command will launch the Cypress Test Runner interface.  
