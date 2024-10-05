@@ -16,10 +16,9 @@ describe("Test Case 6: Contact Us Form", () => {
 
     cy.get('input[data-qa="submit-button"]').click();
 
-    cy.on("window:alert", (text) => {
-      expect(text).to.equal(
-        "Success! Your details have been submitted successfully."
-      );
+    cy.on("window:confirm", (text) => {
+      expect(text).to.equal("Press OK to proceed!");
+      return true;
     });
     cy.contains(
       "Success! Your details have been submitted successfully."
