@@ -44,7 +44,7 @@ npx cypress run
 ```
 or
 ```bash
-npm run test
+npm run test:ci
 ```
 Executes all tests in headless mode using the Electron browser.  
 Results will be displayed in the terminal.
