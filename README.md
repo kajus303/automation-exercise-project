@@ -33,16 +33,12 @@ npm install
 
 #### Open Cypress Test Runner
 ```bash
-npx cypress open
+npx run test
 ```
 This command will launch the Cypress Test Runner interface.  
 You can select individual test cases to run interactively.
 
 #### Run Tests in Headless Mode
-```bash
-npx cypress run
-```
-or
 ```bash
 npm run test:ci
 ```
